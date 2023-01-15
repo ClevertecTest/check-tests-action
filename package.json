@@ -1,0 +1,28 @@
+{
+  "name": "check-tests-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build index.js -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClevertecTest/check-tests-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClevertecTest/check-tests-action/issues"
+  },
+  "homepage": "https://github.com/ClevertecTest/check-tests-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@octokit/request": "^6.2.2",
+    "@vercel/ncc": "^0.36.0",
+    "axios": "^1.2.2"
+  }
+}
