@@ -10966,6 +10966,8 @@ const main = async () => {
             pull_number,
         });
 
+        consol
+
         // const { data: tests_report } = await octokit.rest.repos.getContent({
         //     owner,
         //     repo,
@@ -11004,7 +11006,7 @@ const main = async () => {
         await request(`POST ${url}`, {
             data: { 
                 link: pull_request_info.html_url, 
-                github: owner,
+                github: pull_request_info.user.login,
                 isTestsSuccess: pass_percent_tests >= minimum_required_result
             },
             headers: {
