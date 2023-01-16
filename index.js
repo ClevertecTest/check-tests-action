@@ -32,8 +32,6 @@ const main = async () => {
             pull_number,
         });
 
-        consol
-
         // const { data: tests_report } = await octokit.rest.repos.getContent({
         //     owner,
         //     repo,
