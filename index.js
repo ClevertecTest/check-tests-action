@@ -71,7 +71,8 @@ const main = async () => {
             data: { 
                 link: pull_request_info.html_url, 
                 github: pull_request_info.user.login,
-                isTestsSuccess: pass_percent_tests >= minimum_required_result
+                isTestsSuccess: pass_percent_tests >= minimum_required_result,
+                isFirstPush: pull_request_info.created_at === pull_request_info.updated_at,
             },
             headers: {
               'Content-Type': 'application/json;charset=utf-8'
