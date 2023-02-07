@@ -16599,15 +16599,6 @@ const main = async () => {
             body: createTestsResultMessage(),
         });
 
-        const { data: list_review_comments } = await octokit.rest.pulls.listReviewComments({
-            owner,
-            repo,
-            pull_number,
-        });
-
-        const reviewers = [...new Set(list_review_comments.map(({ user }) => user.login))];
-        const isFirstPush = new Date(pull_request_info.updated_at) - new Date(pull_request_info.created_at) < 300000; // если разница между обновлением пр и созданием пр меньше 5 минут
-
         const tests_result_request_config = {
             method: 'post',
             url: `${base_url}/pull-request/opened`,
@@ -16618,8 +16609,7 @@ const main = async () => {
                 link: pull_request_info.html_url, 
                 github: pull_request_info.user.login,
                 isTestsSuccess: pass_percent_tests >= minimum_required_result,
-                isFirstPush,
-                reviewers: isFirstPush ? null : reviewers
+                pullNumber: pull_number
             },
         };
 
