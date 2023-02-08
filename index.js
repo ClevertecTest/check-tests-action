@@ -17,6 +17,8 @@ const main = async () => {
         let tests_result_message = '';
         let pass_percent_tests = 0;
 
+        console.log('host', base_url);
+
         const octokit = new github.getOctokit(token);
 
         fs.readFile(path_to_tests_report, 'utf8', (err, data) => {
@@ -52,6 +54,8 @@ const main = async () => {
         };
 
         const { data: screenshots } = await axios(screenshots_links_request_config);
+        
+        console.log('screenshots', screenshots);
 
         const createTestsResultMessage = () => {
             screenshots.forEach(({ name, url }) => {
